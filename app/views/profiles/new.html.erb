@@ -1,0 +1,39 @@
+<h2>Profile</h2>
+<%= form_for @profile, url:user_profiles_path(current_user),:action =>'create' do |f| %>
+  <div class="field">
+    <%= f.label :address%> <br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact%><br />
+    <%= f.number_field :contact %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qualification%><br />
+    <%= f.text_field :qualification%>
+  </div>
+
+ <div class="field">
+   <%= f.label :dob%><br />
+   <%= f.date_field :dob %>
+ </div>
+
+  <div class="field">
+   <%= f.label :gender %><br />
+  <%= f.label :gender, "Male"%>
+  <%= f.radio_button 'gender', 'Male' %>
+  <%= f.label :gender, "Female" %>
+  <%= f.radio_button 'gender', 'Female' %>
+   
+    <%#= f.label :gender, "Male", :value => "male" %>
+    <%#= f.radio_button :gender, true %>
+    <%#= f.label :gender, "Female", :value => "female" %>
+    <%#= f.radio_button :gender, false, :checked => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit  %>
+  </div>
+<% end %>

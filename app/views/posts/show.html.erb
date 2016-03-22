@@ -1,0 +1,34 @@
+<body>
+	<div>
+	<table border ="1">
+	 <tr>
+   <td><strong>Post</strong></td>
+   <td></td>
+	 <td><%= @post.post_artical %></td>
+	 </tr>
+	 </table>
+	</div>
+
+  <h4>Comments</h3>
+  <table>
+  <% @post.comments.each do |comment| %>
+  <tr>
+  <td><%= comment.comment_post %></td>
+  <td><%= link_to 'Delete Comment', [comment.post, comment],
+               method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </td>
+  </tr>
+  <% end %>
+  </table>
+
+  <div>
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+
+	    <%= f.label :comment_post %><br>
+	    <%= f.text_area :comment_post %>
+	    <%= f.submit%>
+	<% end %>
+	</div>
+<%= link_to 'Back', posts_path %>
+</body>

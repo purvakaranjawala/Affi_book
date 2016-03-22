@@ -1,0 +1,22 @@
+<h1>Friends List are</h1>
+<body>
+ <table border ="1">
+    <tr>
+    <th>Friend ID</th><td></td>
+    <th>First Name</th><td></td>
+     <th>Last Name</th><td></td>
+    </tr>
+    <% @friendships.each do|f| %>
+    <tr>
+    <td><%= f.friend_id %></td><td></td>>
+    <td><%= User.find(f.friend_id).firstname %></td><td></td>
+    <td><%= User.find(f.friend_id).lastname %></td>
+    <%binding.pry%>
+    <td><%= link_to 'Remove',friendships_path(f),method: :destroy %>
+    <td><%=link_to 'Accept'%></td>
+    <td><%=link_to 'Reject'%></td>
+    <td></td>
+    <%end%>
+    </tr>
+  </table>
+</body>

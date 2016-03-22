@@ -1,0 +1,33 @@
+<body>
+  <h3>Total number of Posts</h3>
+  <table border ="2">
+    <tr>
+    <th>Followed ID</th><td></td>
+    <th>FOllowers Name</th><td></td>
+     <th>FOllowee Name</th><td></td>
+    </tr>
+    <% @relationships.each do|relation| %>
+    <tr>
+    <td><%= relation.followed_id %></td>
+    <td></td>
+    <td><%= User.find(relation.followed_id).firstname%></td><td></td>
+    <td><%= User.find(relation.follower_id).firstname%></td>
+    <td><%= link_to 'unfollow', relationships_path(relation),
+        method: :destroy %></td>
+    <td></td>
+    <%end%>
+    </tr>
+  </table>
+  <table border ="1">
+    <tr><th>POSTS</th></tr>
+    <tr>
+    </tr>
+    <% @posts.each do |all_relation| %>
+    <tr>
+    <td><%= all_relation.id %></td>
+    <td><%= all_post.post_artical%></td>
+    </tr>
+    </tr>
+    <%end%>
+  </table>
+</body>

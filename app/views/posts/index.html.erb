@@ -1,0 +1,30 @@
+<body>
+<h3>Total number of Posts</h3>
+<table border ="1">
+<tr>
+  <th>FirstName</th><td></td>
+  <th>LastName</th><td></td>
+</tr>
+<tr>
+  <td><%= current_user.firstname %></td>
+  <td></td>
+  <td><%= current_user.lastname %></td>
+  <td></td>
+  <td><%= link_to 'More post',posts_new_path%></td>
+  </tr>
+  </table>
+<table border ="1">
+ 
+<tr><th>POSTS</th></tr>
+<tr>
+</tr>
+
+  <% @posts.each do |all_post| %>
+  <tr>
+  <td><%= all_post.user_id %></td>
+  <td><%= all_post.post_artical %></td>
+  <td><%= link_to 'comment', post_path(all_post)%></td>
+</tr>
+<%end%>
+</table>
+</body>
