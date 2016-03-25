@@ -1,29 +1,25 @@
-
 <body style="background-color: #FBCBCB;">
-<div>
-<h2>Welcome to home page</h2>
-<table>
-<h3>
-<%#= link_to image_tag(@user.picture.url(:med)), @user.picture.url %>
-<tr>
-<td><%= link_to 'My Account', user_profile_path(current_user,current_user)%></td>
-</tr>
-<td></td>
-<tr>
-<td><%= link_to 'Post', posts_new_path%></td>
-</tr>
-<td><%= link_to ' Add Profile',new_user_profile_path(current_user)%></td>
-<tr>
-<td><%= link_to 'See User list',user_profiles_path(current_user)%></td>
-</tr>
-<td></td>
-<tr>
-<td><%= link_to 'See followed user list', relationships_path(current_user)%></td>
-</tr>
-<tr>
-<td><%= link_to 'See Friend list'%></td>
-</tr>
-</h3>
-</table>
-</div>
+	<div  class="jumbotron">
+	<div class="container">
+	<h2>Welcome to home page</h2></div></div>
+	<h3>
+	<ul class="list-inline">
+	<%#= link_to image_tag(@user.picture.url(:med)), @user.picture.url %>
+	<li>
+	<%= link_to 'My Account', user_profile_path(current_user,current_user),class: "btn btn-primary btn-xs" %></li>
+
+	<li><%= link_to 'Post', posts_path(current_user),class:"btn btn-primary btn-xs"%></li>
+
+	<li><%= link_to ' Add Profile',new_user_profile_path(current_user),class: "btn btn-primary btn-xs"%></li>
+
+	<li><%= link_to 'See User list',user_profiles_path(current_user),class: "btn btn-primary btn-xs"%></li>
+
+	<li><%= link_to 'See followed user list', relationships_path(current_user),class: "btn btn-primary btn-xs"%></li>
+
+	<li><%= link_to 'See Friend list',friendships_path(current_user),class: "btn btn-primary btn-xs"%></li>
+
+	<li><%= link_to 'RequestArrived',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%></li>
+  </ul>
+	</h3>
+	</div>
 </body>

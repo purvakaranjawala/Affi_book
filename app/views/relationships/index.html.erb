@@ -1,5 +1,5 @@
-<body>
-  <h3>Total number of Posts</h3>
+<body style="background-color: #FBCBCB;">
+  <h3>Followers list is:</h3>
   <table border ="2">
     <tr>
     <th>Followed ID</th><td></td>
@@ -12,8 +12,7 @@
     <td></td>
     <td><%= User.find(relation.followed_id).firstname%></td><td></td>
     <td><%= User.find(relation.follower_id).firstname%></td>
-    <td><%= link_to 'unfollow', relationships_path(relation),
-        method: :destroy %></td>
+    <td><%= link_to 'Unfollow', relation, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     <td></td>
     <%end%>
     </tr>
@@ -25,9 +24,10 @@
     <% @posts.each do |all_relation| %>
     <tr>
     <td><%= all_relation.id %></td>
-    <td><%= all_post.post_artical%></td>
+    <td><%= all_relation.post_artical%></td>
     </tr>
     </tr>
     <%end%>
   </table>
+ <%=link_to 'back to home page', profiles_dashboard_path%>
 </body>

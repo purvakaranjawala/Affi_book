@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'friendships/index'
+  get 'likeships/index'
 
-  get 'friendships/show'
-
-  get 'friendship/index'
-  get 'friendship/show'
   get 'comments/index'
   get 'posts/index'
   get 'posts/new'
   get 'profiles/dashboard'
+  get 'friendships/show_friend_request'
   # get  'profiles/new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -20,6 +17,7 @@ Rails.application.routes.draw do
   end
   resources :relationships
   resources :friendships
+  resources :likeships
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    # resources :customers
@@ -31,9 +29,11 @@ Rails.application.routes.draw do
   end
   # Example resource route (maps HTTP verbs to controller actions automatically):
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
+  # resources :friendships do
+  #   member do
+  #     get 'friend_request'
+  #     get 'friend_'
+              
   #       post 'toggle'
   #     end
   # =>        

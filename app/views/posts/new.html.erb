@@ -1,4 +1,5 @@
-<h1>Posts the article</h1>
+<body style="background-color: #FBCBCB;">
+<h4>Posts the article</h4>
 <%= form_for @post do |f| %>
 <div>
     <%= f.label     :post_artical%><br>
@@ -8,3 +9,5 @@
 	<%= f.submit %> 
 </div>
 <%end%>
+<%=link_to 'Back to home page',profiles_dashboard_path,class: "btn btn-primary btn-xs"%>
+</body>

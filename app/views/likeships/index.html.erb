@@ -1,0 +1,22 @@
+<body style ="background-color: #CD0000";>
+ <div class="navbar"></div>
+ <div class="container"></div>
+ <h3>Liked posts:</h3>
+  <table border ="2">
+    <tr>
+    <th>LIKE ID</th><td></td>
+    <th>First Name</th><td></td>
+    <th>Last Name</th><td></td>
+    </tr>
+    <% @likeships.each do|like| %>
+    <tr>
+    <td><%= User.find(like.user_id).firstname%></td><td></td>
+    <td><%= User.find(like.user_id).lastname%></td>
+    <td><%#= Post.find(like.post_id).post_artical%></td>
+    <td><%= link_to "Unlike",like, method: :delete %></td>
+    <td></td>
+    <%end%>
+    </tr>
+  </table>
+	</div>
+</body>

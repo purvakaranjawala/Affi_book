@@ -1,8 +1,7 @@
 class RelationshipsController < ApplicationController
   def index
     @relationships = Relationship.all
-    @posts = Post.all.where(:user_id => params[:id])
-    #@user = User.all.where(:id => params[:id])
+    @posts = Post.all.where(:user_id => params[:followed_id])
   end
 
   def create
@@ -19,7 +18,7 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @relationship = current_user.relationships.find(params[:id])
-    @relationship.destroy
+    @relationship.delete
     flash[:notice] = "Unfollowed"
     redirect_to relationships_path
   end

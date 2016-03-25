@@ -1,40 +1,47 @@
-<h1> Your Profile is: </h1>
-<div>
-  <strong>FirstName</strong>
-  <%= current_user.firstname %>
-</div>
+<body style="background-color:#FBCBCB;">
+  <h1> Your Profile is: </h1>
+  <div>
+    <strong>FirstName:</strong>
+    <%=  current_user.firstname %>
+  </div>
 
-<div>
-  <strong>LastName</strong>
-  <%= current_user.lastname %>
-</div>
+  <div>
+    <strong>LastName:</strong>
+    <%=  current_user.lastname %>
+  </div>
 
-<div>
-  <strong>Address</strong>
-  <%= @profile.address %>
-</div>
+  <div>
+    <strong>Address:</strong>
+    <%=  @profile.address %>
+  </div>
 
-<div>
-  <strong>DOB</strong>
-  <%= @profile.dob %>
-</div>
+  <div>
+    <strong>DOB:</strong>
+    <%=  @profile.dob %>
+  </div>
 
-<div>
-  <strong>Qualification</strong>
-  <%= @profile.qualification %>
-</div>
+  <div>
+    <strong>Qualification:</strong>
+    <%=  @profile.qualification %>
+  </div>
 
-<div>
-  <strong>ContactNumber</strong>
-  <%= @profile.contact %>
-</div>
+  <div>
+    <strong>ContactNumber:</strong>
+    <%=  @profile.contact %>
+  </div>
 
-<div>
-  <table>
-  <tr>
-  <td><%= link_to ' Add Profile',new_user_profile_path(current_user)%></td>
-  <td></td>
-  <td><%=link_to 'back to home page', profiles_dashboard_path%></td>
-  </tr>
-  </table>
-</div>
+  <div>
+    <strong>Gender:</strong>
+    <%=  @profile.gender %>
+  </div>
+
+  <div>
+    <table>
+    <tr>
+    <td><%= link_to ' Add Profile',new_user_profile_path(current_user),class: "btn btn-primary btn-xs"%></td>
+    <td></td>
+    <td><%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%></td>
+    </tr>
+    </table>
+  </div>
+</body>

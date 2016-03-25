@@ -6,4 +6,3 @@ class ApplicationController < ActionController::Base
   #   redirect_to root_url, :alert => exception.message
   before_action :authenticate_user!
 end
-
