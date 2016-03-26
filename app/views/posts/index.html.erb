@@ -21,6 +21,7 @@
   <% @posts.each do |all_post| %>
   <tr>
   <td><%= all_post.user_id %></td>
+  <td><%= User.posts.where(all_post.user_id).firstname %></td>
   <td><%= all_post.post_artical %></td>
   <td><%= link_to 'comment', post_path(all_post),class: "btn btn-primary btn-xs"%></td>
   <td><%= link_to 'Like',likeships_path(:post_id => all_post.id),method: :post,class: "btn btn-primary btn-xs"%></td>

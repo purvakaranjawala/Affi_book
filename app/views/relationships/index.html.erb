@@ -7,8 +7,6 @@
     </tr>
     <% @relationships.each do|relation| %>
     <tr>
-    <td><%#= relation.followed_id %></td>
-    <td></td>
     <td><%= User.find(relation.followed_id).firstname%></td><td></td>
     <td><%= User.find(relation.follower_id).firstname%></td>
     <td><%= link_to 'Unfollow', relation, method: :delete, data: { confirm: 'Are you sure?' }%></td>

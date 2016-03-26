@@ -12,7 +12,6 @@
     <tr>
     <td><%= User.find(like.user_id).firstname%></td><td></td>
     <td><%= User.find(like.user_id).lastname%></td>
-    <td><%#= Post.find(like.post_id).post_artical%></td>
     <td><%= link_to "Unlike",like, method: :delete %></td>
     <td></td>
     <%end%>
