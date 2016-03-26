@@ -1,8 +1,7 @@
-<body style="background-color: #FBCBCB;">
-	<div  class="jumbotron">
+<body style="background-color: #8080ff;">
+	<div  class="jumbotron text-center">
 	<div class="container">
-	<h2>Welcome to home page</h2></div></div>
-	<h3>
+	<h4>Welcome to home page</h4></div></div>
 	<ul class="list-inline">
 	<%#= link_to image_tag(@user.picture.url(:med)), @user.picture.url %>
 	<li>
@@ -19,7 +18,6 @@
 	<li><%= link_to 'See Friend list',friendships_path(current_user),class: "btn btn-primary btn-xs"%></li>
 
 	<li><%= link_to 'RequestArrived',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%></li>
-  </ul>
-	</h3>
+   </ul>
 	</div>
 </body>
