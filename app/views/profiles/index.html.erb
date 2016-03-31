@@ -10,14 +10,17 @@
     <tr>
       <td><%= user.firstname%></td>
       <td><%= user.lastname%></td>
-      <td></td>
-      <td></td>
-      <td><%= link_to 'Addtofriendlist',friendships_path(:friend_id => user), :method => :post%></td> 
-      <td></td> 
+      <% @frnd = current_user.friendships.map(&:friend_id) %>
+        <% if @frnd.include?user.id %>
+          <td><%= link_to 'Unfriend',user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%else%>
+          <td><%= link_to 'Addtofriendlist',friendships_path(:friend_id => user), :method => :post%></td> 
+        <%end%>
+
       <td><%= link_to 'Follow', relationships_path(:followed_id => user), method: :post %></td>
-      <td></td>
     </tr>
-    <% end %>
+   
+    <%end%>
   </table>
   <%=link_to 'back to home page', profiles_dashboard_path%>
 </body> 

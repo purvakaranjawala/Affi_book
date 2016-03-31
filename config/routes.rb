@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'likeships/index'
-
   get 'comments/index'
   get 'posts/index'
   get 'posts/new'
   get 'profiles/dashboard'
   get 'friendships/show_friend_request'
-  # get  'profiles/new'
+  get 'profiles/my_account'
+  get  'posts/my_post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # get  'customers/new'

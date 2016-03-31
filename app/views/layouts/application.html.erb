@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AffiBook</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-  <% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-  <% end %>
+  <head>
+    <title>AffiBook</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+ 
+  <body>
+  	<% if user_signed_in? %>
+      <header>
+        <nav>
+        <ul class="nav navbar-nav navbar-right">
+        <li><%= current_user.firstname%></li>
+        <li><%=link_to 'Home', profiles_dashboard_path,class: "btn btn-primary btn-sm"%></li>
+        <li>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete)%>
+        </li>
+        </ul>
+        </nav>
+      </header>
+    <% else %>
+      <li>
+      <%= link_to('Login', new_user_session_path)  %>  
+      </li>
+    <% end %>
+
+    <% if user_signed_in? %>
+     <%= image_tag(current_user.avatar.url) %>
+    <%end%>
 
    <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
    <%- end -%>
 
-  <%= yield %>
-</body>
+   <%= yield %>
+  </body>
 </html>

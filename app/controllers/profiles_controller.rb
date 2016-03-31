@@ -1,10 +1,14 @@
 class ProfilesController < ApplicationController
- 
 	def dashboard
+		if current_user.user?
+		else
+			redirect_to user_profiles_path(current_user.id)
+		end
 	end
 
 	def index
 		@user = User.all.where("id!=?",current_user.id)
+	
 	end
 
 	def show
@@ -22,6 +26,12 @@ class ProfilesController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def all_user
+	end
+
+    def my_account
 	end
 
 	private 

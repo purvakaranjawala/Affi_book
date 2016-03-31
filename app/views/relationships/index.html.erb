@@ -1,29 +1,25 @@
 <body style="background-color: #FBCBCB;">
   <h3>Followers list is:</h3>
-  <table border ="2">
+  <table class="table table-sm">
     <tr>
-    <th>FOllowers Name</th><td></td>
-     <th>FOllowee Name</th><td></td>
+    <th>Followers Name</th>
+     <th>Followee Name</th>
     </tr>
     <% @relationships.each do|relation| %>
     <tr>
-    <td><%= User.find(relation.followed_id).firstname%></td><td></td>
     <td><%= User.find(relation.follower_id).firstname%></td>
+    <td><%= User.find(relation.followed_id).firstname%></td>
+    
     <td><%= link_to 'Unfollow', relation, method: :delete, data: { confirm: 'Are you sure?' }%></td>
-    <td></td>
+    </tr>
+    <%# @post = Post.all.where(:id => relation.id)%>
+    <%# @post.each do|p|%>
+    <tr>
+    <td><%#= p.post_artical%></td>
     <%end%>
     </tr>
-  </table>
-  <table border ="1">
-    <tr><th>POSTS</th></tr>
-    <tr>
-    </tr>
-    <% @posts.each do |all_relation| %>
-    <tr>
-    <td><%= all_relation.post_artical%></td>
-    </tr>
-    </tr>
-    <%end%>
-  </table>
- <%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%>
+    <%#end%>
+    <% if current_user.nil?%>
+   <%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%>
+   <%end%>
 </body>

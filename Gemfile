@@ -22,8 +22,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'cancan'
-# gem "rmagick"
-# gem "carrierwave"
+ # gem "rmagick"
+ gem "carrierwave"
+ gem "mini_magick"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,7 +48,7 @@ end
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'pry-rails'
-gem "paperclip"
+# gem "paperclip"
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

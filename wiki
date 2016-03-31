@@ -1,0 +1,3 @@
+<% @pos = current_user.friendships.map(&:friend_id)%>
+      <% @posts.each do|all_post|%>
+        <% if @pos.include? all_post.user_id %>

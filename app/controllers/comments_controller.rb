@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
   
+  def index
+    @comment = Comment.all
+  end
+
   def create
   	@post = Post.find(params[:post_id])
   	@comment = @post.comments.build(comment_params)

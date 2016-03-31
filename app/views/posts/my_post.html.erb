@@ -1,0 +1,23 @@
+<body style="background-color: #FBCBCB;">
+  <table class="table table-sm">
+    <h4>your  posts are:--</h4> 
+    <tr>
+    <th>Artical</th>
+    </tr>
+    <% @myposts.each do |post| %>
+    <tr>
+    <td><%= User.find(post.user_id).firstname %></td>
+    <td><%= post.post_artical %></td>
+    <td><%=link_to 'delete',post,method: :delete ,class: "btn btn-primary btn-xs"%>
+    </tr>
+
+    <% post.comments.each do|comment|%>
+     <tr>
+     <td><%= comment.comment_post %></td>
+     </tr>
+     <%end%>
+    <%end%>
+    </tr>
+  </table>
+  <%=link_to 'Back', posts_path,class: "btn btn-primary btn-xs"%>
+</body>

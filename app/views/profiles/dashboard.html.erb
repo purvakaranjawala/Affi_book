@@ -3,9 +3,8 @@
 	<div class="container">
 	<h4>Welcome to home page</h4></div></div>
 	<ul class="list-inline">
-	<%#= link_to image_tag(@user.picture.url(:med)), @user.picture.url %>
 	<li>
-	<%= link_to 'My Account', user_profile_path(current_user,current_user),class: "btn btn-primary btn-xs" %></li>
+	<%= link_to 'My Account',  profiles_my_account_path(current_user),class: "btn btn-primary btn-xs" %></li>
 
 	<li><%= link_to 'Post', posts_path(current_user),class:"btn btn-primary btn-xs"%></li>
 

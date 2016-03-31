@@ -1,31 +1,37 @@
 <body style="background-color: #FBCBCB;">
 <h3></h3>
-<table border ="3">
-<tr>
-  <th>FirstName</th><td></td>
-  <th>LastName</th><td></td>
-</tr>
-<tr>
-  <td><%= current_user.firstname %></td>
-  <td></td>
-  <td><%= current_user.lastname %></td>
-  <td></td>
-  <td><%= link_to 'More post',posts_new_path,class: "btn btn-primary btn-xs"%></td>
-  </tr>
+  <table class="table table-reflow">
+    <tr>
+    <td><%= link_to 'Do post',posts_new_path(current_user),class: "btn btn-primary btn-xs"%></td>
+    <td><%= link_to 'MyPost',  posts_my_post_path(current_user),class: "btn btn-primary btn-xs"%></td>
+    </tr>
   </table>
-<table border ="2">
- 
-<tr><th>POSTS</th></tr>
-<tr>
-</tr>
-  <% @posts.each do |all_post| %>
-  <tr>
-  <td><%= all_post.user_id %></td>
-  <td><%= all_post.post_artical %></td>
-  <td><%= link_to 'comment', post_path(all_post),class: "btn btn-primary btn-xs"%></td>
-  <td><%= link_to 'Like',likeships_path(:post_id => all_post.id),method: :post,class: "btn btn-primary btn-xs"%></td>
-</tr>
-<%end%>
-</table>
-<%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%>
+    <%# if user.include?Friendship && user.include?Relationship %>
+  <table class = "table table-bordered">
+    <h4>Posts:---</h4> 
+    <tr>
+    <th>Artical</th>
+    </tr>
+      <% @pos = User.find(current_user.id).friendships.map(&:friend_id)%>
+      <% @posts.where(:user_id => @pos).each do  |all_post|%>
+        <tr>
+        <td><%= all_post.post_artical%></td>
+        <td><%= link_to 'comment', post_path(all_post),class: "btn btn-primary btn-xs"%></td>
+        <td><%= link_to 'Like',likeships_path(:post_id => all_post.id),method: :post,class: "btn btn-primary btn-xs"%></td>
+      <%end%>
+      </tr>
+  </table>
+ <%#else%>
+  <h6> User you followed</h6>
+  <table class="table table-sm">
+      <% @follow = User.find(current_user.id).relationships.map(&:followed_id)%>
+      <% @posts.where(:user_id => @follow).each do  |all_post|%>
+      <tr>
+        <td><%= all_post.post_artical%></td>
+        <td><%= link_to 'Like',likeships_path(:post_id => all_post.id),method: :post,class: "btn btn-primary btn-xs"%></td>
+      <%end%>
+      </tr>
+  </table>
+  <%#end%>
+  <%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%>
 </body>

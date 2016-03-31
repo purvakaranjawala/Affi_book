@@ -1,11 +1,8 @@
 <body style="background-color: #FBCBCB";>
 	<div>
 	<table border ="1">
-	 <tr>
-   <td><strong>Post</strong></td>
-   <td></td>
-	 <td><%= @post.post_artical %></td>
-	 </tr>
+	 <tr><strong>Post</strong></tr>
+	 <tr><%= @post.post_artical %></tr>
 	 </table>
 	</div>
 
@@ -14,8 +11,7 @@
   <% @post.comments.each do |comment| %>
   <tr>
   <td><%= comment.comment_post %></td>
-  <td><%= link_to 'Delete Comment', [comment.post, comment],
-               method: :delete,
+  <td><%= link_to 'Delete Comment', [comment.post, comment],method: :delete,
               data: { confirm: 'Are you sure?' } %>
   </td>
   </tr>

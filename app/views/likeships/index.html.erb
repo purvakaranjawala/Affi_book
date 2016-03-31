@@ -3,20 +3,21 @@
  <div class="container"></div>
  <h5>LIKED USER LIST</h5>
  <div class="table-responsive">
-  <table class ="table">
+   <table class ="table">
     <tr>
-    <th>First Name</th><td></td>
-    <th>Last Name</th><td></td>
+      <th>First Name</th><td></td>
+      <th>Last Name</th><td></td>
     </tr>
     <% @likeships.each do|like| %>
     <tr>
-    <td><%= User.find(like.user_id).firstname%></td><td></td>
-    <td><%= User.find(like.user_id).lastname%></td>
-    <td><%= link_to "Unlike",like, method: :delete %></td>
-    <td></td>
-    <%end%>
+      <td><%= User.find(like.user_id).firstname%></td><td></td>
+      <td><%= User.find(like.user_id).lastname%></td>
+      <td><%= link_to "Unlike",like, method: :delete %></td>
+      <td></td>
+      <%end%>
     </tr>
     </table>
 	</div>
-    <%=link_to 'Back to home page', profiles_dashboard_path%>
+  <%=link_to 'Back to home page', profiles_dashboard_path%>
 </body>
+
