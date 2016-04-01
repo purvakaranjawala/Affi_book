@@ -1,4 +1,4 @@
-<body style="background-color: #FBCBCB;">
+<body style="background-color: #A4C8EC;">
   <h3>Followers list is:</h3>
   <table class="table table-sm">
     <tr>
@@ -10,16 +10,10 @@
     <td><%= User.find(relation.follower_id).firstname%></td>
     <td><%= User.find(relation.followed_id).firstname%></td>
     
-    <td><%= link_to 'Unfollow', relation, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+    <td><%= link_to 'Unfollow',relation, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </tr>
-    <%# @post = Post.all.where(:id => relation.id)%>
-    <%# @post.each do|p|%>
-    <tr>
-    <td><%#= p.post_artical%></td>
     <%end%>
     </tr>
-    <%#end%>
-    <% if current_user.nil?%>
-   <%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%>
-   <%end%>
+  </table>
+    <%=link_to 'Back',:back , class: "btn btn-primary btn-xs"%>
 </body>

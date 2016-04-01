@@ -1,12 +1,11 @@
 <h4>Friends List are</h4>
-<body style ="background-color: #FBCBCB";>
+<body style ="background-color: #A4C8EC";>
  <table border ="1",class="table table-hover">
     <tr>
     <th>Friend </th><td></td>
     <th>First Name</th><td></td>
      <th>Last Name</th><td></td>
     </tr>
-   <% unless current_user.friendships.include?(@user) %>
     <% @friendships.each do|frnd| %>
         <tr>
         <td><%= frnd.friend_id %></td><td></td>
@@ -15,7 +14,5 @@
         <td><%= link_to 'Remove',frnd, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <%end%> 
     </tr>
-    <%end%>
   </table>
-  <%=link_to 'Back to home page', profiles_dashboard_path%>
 </body>

@@ -12,12 +12,6 @@ Rails.application.routes.draw do
   # get  'customers/new'
   # You can have the root of your site routed with "root"
   root 'profiles#dashboard'
-  resources :posts do 
-    resources :comments
-  end
-  resources :relationships
-  resources :friendships
-  resources :likeships
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    # resources :customers
@@ -27,6 +21,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
   end
+
+  resources :posts do 
+    resources :comments
+  end
+  resources :relationships
+  resources :friendships
+  resources :likeships
   # Example resource route (maps HTTP verbs to controller actions automatically):
   # Example resource route with options:
   # resources :friendships do

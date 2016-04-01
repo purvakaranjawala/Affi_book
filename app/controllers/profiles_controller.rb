@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 	def dashboard
 		if current_user.user?
 		else
-			redirect_to user_profiles_path(current_user.id)
+			redirect_to users_path(current_user) 
 		end
 	end
 

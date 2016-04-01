@@ -17,10 +17,10 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    @relationship = current_user.relationships.find(params[:id])
+    @relationship =  current_user.relationships.find_by(followed_id: params[:id])
     @relationship.delete
     flash[:notice] = "Unfollowed"
-    redirect_to relationships_path
+    redirect_to :back
   end
 
   private

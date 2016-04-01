@@ -1,0 +1,16 @@
+<h4> Welcome Admin </h4>
+<body style="background-color:#FBCBCB;">
+  <h3>ALL Users</h3> 
+  <table border= '2'>
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.firstname%></td>
+      <td><%= user.lastname%></td>
+     </tr>
+    <%end%>
+  </table>
+</body> 
