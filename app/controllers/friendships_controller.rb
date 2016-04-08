@@ -1,7 +1,8 @@
 class FriendshipsController < ApplicationController
   def index
-    @friendships = current_user.friendships.all
-  end
+   @friendships = Friendship.where(:friend_id => current_user.id, :flag => true).all
+   @friends = current_user.friendships.where(:flag => true).all
+  end 
 
   def create
 		@friendship = current_user.friendships.build(:friend_id => params[:friend_id],flag: false)
@@ -25,7 +26,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-	  @friendship = current_user.friendships.find_by(friend_id: params[:id])
+	  @friendship = Friendship.find_by(friend_id: params[:id])
 	  @friendship.delete
 	  flash[:notice] = "Removed friendship."
 	  redirect_to :back
