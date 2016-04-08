@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
 
 	def index
 		@user = User.all.where("id!=?",current_user.id)
-	
 	end
 
 	def show
@@ -28,10 +27,7 @@ class ProfilesController < ApplicationController
 		end
 	end
 
-	def all_user
-	end
-
-    def my_account
+  def my_account
 	end
 
 	private 

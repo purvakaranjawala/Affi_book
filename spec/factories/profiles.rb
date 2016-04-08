@@ -5,6 +5,6 @@ FactoryGirl.define do
     contact 1
     qualification "MyString"
     dob "2016-03-15"
-    gender "MyString"
+    gender "Male"
   end
 end

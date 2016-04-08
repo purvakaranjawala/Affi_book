@@ -1,23 +1,26 @@
-<body style="background-color:#A4C8EC;">
-  <h1> Your Profile is: </h1>
-  <div>
-    <strong>FirstName:</strong>
-    <%=  current_user.firstname %>
-  </div>
-
-  <div>
-    <strong>LastName:</strong>
-    <%=  current_user.lastname %>
-  </div>
-
-  <div>
-    <strong>EmailId:</strong>
-    <%=  current_user.email %>
-  </div>
-
-	<div>
-		<ul>
-		<li><%= link_to ' Add Profile',new_user_profile_path(current_user),class: "btn btn-primary btn-xs"%></li>
-    </ul>
+<body>
+  <div id="wrapper">
+  
+    <h1> Your Profile is: </h1>
+    <div>
+      <strong>FirstName:</strong>
+      <%=  current_user.firstname %>
     </div>
+
+    <div>
+      <strong>LastName:</strong>
+      <%=  current_user.lastname %>
+    </div>
+
+    <div>
+      <strong>EmailId:</strong>
+      <%=  current_user.email %>
+    </div>
+
+  	<div>
+  		<ul>
+  		<li><%= link_to ' Add Profile',new_user_profile_path(current_user),class: "btn btn-primary btn-xs"%></li>
+      </ul>
+    </div>
+  </div>   
 </body>

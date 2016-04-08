@@ -5,36 +5,39 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-   <%= javascript_include_tag :defaults%>
-  </head>
- 
-  <body>
-  	<% if user_signed_in? %>
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag :defaults %>
+ </head>
+
+
+  <body style="background-color: #FBCBCB;">
+    <% if user_signed_in? %>
       <header>
-        <nav>
-        <ul class="nav navbar-nav navbar-right">
-        <li><%= current_user.firstname%></li>
-        <li><%=link_to 'Home', profiles_dashboard_path,class: "btn btn-primary btn-sm"%></li>
-        <li>
-        <%= link_to('Logout', destroy_user_session_path, :method => :delete)%>
-        </li>
-        </ul>
-        </nav>
+      <nav>
+      <ul class="nav navbar-nav navbar-right">
+      <%= image_tag(current_user.avatar.url,:size => "260x180")%>
+      <li><%= current_user.firstname%></li>
+      <li><%=link_to 'Home', profiles_dashboard_path,class: "btn btn-primary btn-sm"%></li>
+      <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete,class: "btn btn-primary btn-xs")%>
+      </li>
+      </ul>
       </header>
     <% else %>
-      <li>
-      <%= link_to('Login', new_user_session_path)  %>  
-      </li>
+      <li><span class="nav navbar-nav navbar-middle">
+      <%= link_to('Login', new_user_session_path,class: "btn btn-primary btn-xs")  %>  
+      </span></li>
     <% end %>
+    </nav>
 
     <% if user_signed_in? %>
-     <%= image_tag(current_user.avatar.url,:size => "260x180")%>
+    <%= image_tag(current_user.avatar.url,:size => "260x180")%>
     <%end%>
 
-   <%- flash.each do |name, msg| -%>
+    <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
-   <%- end -%>
+    <%- end -%>
 
-   <%= yield %>
+    <%= yield %>
   </body>
 </html>

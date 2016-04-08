@@ -65,11 +65,4 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   process :resize_to_limit => [1000, 1500]
   #   process :store_dimensions
   # end
-
-#   private
-
- # version :thumbnail do
- #    resize_to_fit(50, 50)
- #  end
-
- end
+end

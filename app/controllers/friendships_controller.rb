@@ -27,16 +27,12 @@ class FriendshipsController < ApplicationController
   def destroy
 	  @friendship = current_user.friendships.find_by(friend_id: params[:id])
 	  @friendship.delete
-	 flash[:notice] = "Removed friendship."
+	  flash[:notice] = "Removed friendship."
 	  redirect_to :back
   end
 
   def show_friend_request
     @frnds = Friendship.where(:friend_id => current_user.id)
-  end
-
-  def my_frnds
-    @my_frnds = current_user.friendships.all
   end
   
  private

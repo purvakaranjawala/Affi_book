@@ -3,7 +3,11 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-#
+# default: &default
+# adapter: sqlite3
+# pool: 5
+# timeout: 5000
+
 
 development:
   adapter: sqlite3
@@ -23,3 +27,18 @@ production:
   username: Affi_Book
   password: root
   
+test: 
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+     
+# adapter: postgresql
+# database: Affi_Book_production
+# development: ~
+# encoding: unicode
+# password: root
+# pool: 5
+# production: ~
+# timeout: 5000
+# username: Affi_Book

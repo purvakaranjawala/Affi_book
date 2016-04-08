@@ -7,11 +7,11 @@
      <th>Last Name</th><td></td>
     </tr>
     <% @friendships.each do|frnd| %>
-        <tr>
-        <td><%= frnd.friend_id %></td><td></td>
-        <td><%= User.find(frnd.friend_id).firstname %></td><td></td>
-        <td><%= User.find(frnd.friend_id).lastname %></td>
-        <td><%= link_to 'Remove',frnd, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr>
+      <td><%= frnd.friend_id %></td><td></td>
+      <td><%= User.find(frnd.friend_id).firstname %></td><td></td>
+      <td><%= User.find(frnd.friend_id).lastname %></td>
+      <td><%= link_to 'Remove',friendship_path(frnd.friend_id.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <%end%> 
     </tr>
   </table>

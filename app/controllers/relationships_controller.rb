@@ -1,26 +1,28 @@
 class RelationshipsController < ApplicationController
   def index
-    @relationships = Relationship.all
-    @posts = Post.all.where(:user_id => params[:followed_id])
+    @relationships = current_user.relationships.all
   end
 
   def create
    @relationship = current_user.relationships.build(:followed_id => params[:followed_id])
-        @relationship.follower_id = current_user.id
-        @relationship.user_id = current_user.id
+      @relationship.follower_id = current_user.id
+      @relationship.user_id = current_user.id
     if @relationship.save
       puts "you followed"
-      redirect_to relationships_path(:id => params[:followed_id])
+      redirect_to :back
     else
       redirect_to @relationship
     end
   end
 
   def destroy
-    @relationship =  current_user.relationships.find_by(followed_id: params[:id])
+   @relationship =  current_user.relationships.find_by(followed_id: params[:id])
     @relationship.delete
     flash[:notice] = "Unfollowed"
-    redirect_to :back
+    respond_to do |format|
+     format.html { redirect_to (:back)}
+     format.js 
+    end
   end
 
   private

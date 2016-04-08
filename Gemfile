@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
@@ -44,6 +44,7 @@ group :test do
   gem "shoulda-matchers", "< 3.0.0",
     require: false
 end
+gem 'simplecov',:require => false, :group => :test
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
