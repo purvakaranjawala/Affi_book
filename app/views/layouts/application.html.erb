@@ -16,7 +16,7 @@
       <nav>
       <ul class="nav navbar-nav navbar-right">
       <%= image_tag(current_user.avatar.url,:size => "260x180")%>
-      <li><%= current_user.firstname%></li>
+      <li><h3><%= current_user.firstname%></h3></li>
       <li><%=link_to 'Home', profiles_dashboard_path,class: "btn btn-primary btn-sm"%></li>
       <li>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete,class: "btn btn-primary btn-xs")%>
@@ -29,10 +29,6 @@
       </span></li>
     <% end %>
     </nav>
-
-    <% if user_signed_in? %>
-    <%= image_tag(current_user.avatar.url,:size => "260x180")%>
-    <%end%>
 
     <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
