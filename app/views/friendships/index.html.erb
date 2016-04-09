@@ -2,23 +2,20 @@
 <body style ="background-color: #A4C8EC";>
  <table class="table table-bordered">
     <tr>
-      <th>Friend </th>
       <th>First Name</th>
       <th>Last Name</th>
     </tr>
 
     <% @friendships.each do|frnd| %>
       <tr>
-        <%#= frnd.user_id %>
         <td><%= User.find(frnd.user_id).firstname %></td>
         <td><%= User.find(frnd.user_id).lastname %></td>
-        <td><%= link_to 'Remove',friendship_path(frnd.user_id.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Remove',friendship_path(frnd.user_id.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <%end%>
    
     <% @friends.each do|frnd| %>
       <tr>
-        <%#= frnd.friend_id%>
         <td><%= User.find(frnd.friend_id).firstname %></td>
         <td><%= User.find(frnd.friend_id).lastname %></td>
     <%end%>

@@ -25,7 +25,7 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  def destroy
+   def destroy
 	  @friendship = Friendship.find_by(friend_id: params[:id])
 	  @friendship.delete
 	  flash[:notice] = "Removed friendship."

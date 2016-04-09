@@ -21,7 +21,7 @@ class RelationshipsController < ApplicationController
     flash[:notice] = "Unfollowed"
     respond_to do |format|
      format.html { redirect_to (:back)}
-     format.js 
+     format.js {render :nothing => true }
     end
   end
 

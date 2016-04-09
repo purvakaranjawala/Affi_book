@@ -12,7 +12,7 @@
           <td><%= user.firstname%></td>
           <td><%= user.lastname%></td>
           <% @frnd = current_user.friendships.map(&:friend_id) %>
-          <% if @frnd.include?user.id %>
+          <% if @frnd.include?user.id || @frnd.where(flag: true)%>
             <td><%= link_to 'Unfriend',friendship_path(user), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger btn-xs btn3d raised"%></td>
           <%else%>
             <td><span><%= link_to 'Addtofriendlist',friendships_path(:friend_id => user), :method => :post,class: "btn btn-primary btn-xs round"%></td></span>
@@ -20,7 +20,7 @@
 
           <%@follow= current_user.relationships.map(&:followed_id) %>
           <% if @follow.include?user.id %>
-            <td><%= link_to 'Unfollow',relationship_path(user), method: :delete,data: { confirm: 'Are you sure?' },remote: true,:class => 'delete',class: "btn btn-danger btn-xs"%></td>
+            <td><%= link_to 'Unfollow',relationship_path(user), method: :delete,data: { confirm: 'Are you sure?' },:remote => true,class: "btn btn-danger btn-xs"%></td>
           <%else%>
             <td><%= link_to 'Follow', relationships_path(:followed_id => user), method: :post,class: "btn btn-primary btn-xs" %></td>
           <%end%>
