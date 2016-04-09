@@ -8,7 +8,7 @@ class RelationshipsController < ApplicationController
       @relationship.follower_id = current_user.id
       @relationship.user_id = current_user.id
     if @relationship.save
-      puts "you followed"
+      flash[:notice] = "Followed"
       redirect_to :back
     else
       redirect_to @relationship
@@ -21,7 +21,7 @@ class RelationshipsController < ApplicationController
     flash[:notice] = "Unfollowed"
     respond_to do |format|
      format.html { redirect_to (:back)}
-     format.js {render :nothing => true }
+     format.js 
     end
   end
 
