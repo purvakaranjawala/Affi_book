@@ -17,12 +17,12 @@
 	</li>
 
 	<li><%= link_to 'See Friend list',friendships_path(current_user),class: "btn btn-primary btn-xs"%>
-	<%= current_user.friendships.count%>
+	<%=Friendship.friend_count(current_user).count%>
 	</li>
 
 	<li><%= link_to 'RequestArrived',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%>
-	<%= current_user.friendships.where(:friend_id => current_user.id,flag: false).count%>
+	<%= (Friendship.frndrequest(current_user).count)%>
 	</li>
-   </ul>
+  </ul>
 	</div>
 </body>

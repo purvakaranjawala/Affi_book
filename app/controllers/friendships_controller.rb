@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-   @friendships = Friendship.where(:friend_id => current_user.id, :flag => true).all
+   @friendships = Friendship.friend_count(current_user).all
    @friends = current_user.friendships.where(:flag => true).all
   end 
 
