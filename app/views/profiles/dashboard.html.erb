@@ -12,11 +12,17 @@
 
 	<li><%= link_to 'See User list',user_profiles_path(current_user),class: "btn btn-primary btn-xs"%></li>
 
-	<li><%= link_to 'See followed user list', relationships_path,class: "btn btn-primary btn-xs"%></li>
+	<li><%= link_to 'See followed user list', relationships_path,class: "btn btn-primary btn-xs"%>
+	<%= current_user.relationships.count%>
+	</li>
 
-	<li><%= link_to 'See Friend list',friendships_path(current_user),class: "btn btn-primary btn-xs"%></li>
+	<li><%= link_to 'See Friend list',friendships_path(current_user),class: "btn btn-primary btn-xs"%>
+	<%= current_user.friendships.count%>
+	</li>
 
-	<li><%= link_to 'RequestArrived',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%></li>
+	<li><%= link_to 'RequestArrived',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%>
+	<%= current_user.friendships.where(:friend_id => current_user.id,flag: false).count%>
+	</li>
    </ul>
 	</div>
 </body>
