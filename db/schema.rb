@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160329080643) do
   create_table "likeships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
+    t.boolean  "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

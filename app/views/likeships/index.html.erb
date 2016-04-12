@@ -1,23 +1,20 @@
-<body style ="background-color: #A4C8EC";>
- <div class="navbar"></div>
- <div class="container"></div>
+<body>
  <h5>LIKED USER LIST</h5>
  <div class="table-responsive">
    <table class ="table">
     <tr>
-      <th>First Name</th><td></td>
-      <th>Last Name</th><td></td>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Post Liked</th>
     </tr>
     <% @likeships.each do|like| %>
     <tr>
-      <td><%= User.find(like.user_id).firstname%></td><td></td>
-      <td><%= User.find(like.user_id).lastname%></td>
-      <td><%= link_to "Unlike",like, method: :delete %></td>
-      <td></td>
+      <td><%= User.find(like.user_id).firstname %></td>
+      <td><%= User.find(like.user_id).lastname %></td>
+      <td><%= @posts.find(like.post_id).post_artical %></td>
+      <td><%= link_to "Unlike",likeship_path(like.user_id.to_s), method: :delete %></td>
       <%end%>
     </tr>
     </table>
-	</div>
-  <%=link_to 'Back',:back,class: "btn btn-primary btn-xs"%>
+  <%=link_to 'Back', :back ,class: "btn btn-primary btn-xs"%>
 </body>
-

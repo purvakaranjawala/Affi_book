@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'likeships/index'
   get 'comments/index'
   get 'posts/index'
   get 'posts/new'

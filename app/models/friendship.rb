@@ -4,4 +4,3 @@ class Friendship < ActiveRecord::Base
   scope :frndrequest, lambda{ |user| where(:friend_id => user.id,flag: false)}
   scope :friend_count,lambda{|user| where(:friend_id => user.id,flag: true) }
 end
-

@@ -1,29 +1,38 @@
 <body style="background-color: #FBCBCB;">
-  <table class="table table-reflow">
+  <table class="table table-inverse">
     <tr>
       <td><%= link_to 'Do post',posts_new_path(current_user),class: "btn btn-primary btn-xs"%></td>
       <td><%= link_to 'MyPost',  posts_my_post_path(current_user),class: "btn btn-primary btn-xs"%></td>
     </tr>
-  </table>
-  
-  <table class = "table table-bordered">
+  </table> 
+    <table class = "table table-bordered">
     <h4>Posts:---</h4> 
     <tr><th>Artical</th></tr>
-    <% @pos = User.find(current_user.id).friendships.map(&:friend_id)%>
-    <% @posts.where(:user_id => @pos).each do  |all_post|%>
+    <% @pos = current_user.friendships.map(&:friend_id)%>
+    <% @posts.where(:user_id => @pos).each do |all_post|%>
       <tr>
       <td><%= all_post.post_artical%></td>
+      <td><span class="timestamp">
+      Posted <%= time_ago_in_words(all_post.created_at) %> ago</span></td>
       <td><%= link_to 'comment', post_path(all_post),class: "btn btn-primary btn-xs"%></td>
-      <td><%= link_to 'Like',likeships_path(:post_id => all_post.id),method: :post,class: "btn btn-primary btn-xs"%></td>
+     <% if @pos.include?all_post.user_id %>
+     <td><%= link_to 'Like',likeships_path(:post_id => all_post),method: :post,class: "btn btn-primary btn-xs"%> </td>
+      <%else%>
+      <td><%= link_to "Unlike",likeship_path(all_post), method: :delete, class: "btn btn-primary btn-xs"%></td>
       </tr>
+      <%end%>
     <%end%>
+
+
   </table>
-    <h6> User you followed</h6>
+    <h2> User you followed</h2>
   <table class="table table-sm">
     <% @follow = current_user.relationships.map(&:followed_id)%>
-    <% @posts.where(:user_id => @follow).each do  |all_post|%>
+    <% @posts.where(:user_id => @follow).each do |all_post|%>
       <tr>
       <td><%= all_post.post_artical%></td>
+      <td><span class="timestamp">
+      Posted <%= time_ago_in_words(all_post.created_at) %> ago</span></td>
       <td><%= link_to 'Like',likeships_path(:post_id => all_post.id),method: :post,class: "btn btn-primary btn-xs"%></td>
     <%end%>
     </tr>

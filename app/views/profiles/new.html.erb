@@ -1,5 +1,5 @@
 <body style="background-color:#FBCBCB;">
-  <h2>Profile</h2>
+  <h1>Profile</h1>
   <%= form_for @profile, url:user_profiles_path(current_user),:action =>'create' do |f| %>
     <div class="form-group">
       <%= f.label :address, class: 'col-sm-0 control-label' %> <br />
@@ -43,5 +43,4 @@
         <%= f.submit  %>
     </div>
   <% end %>
-  <td><%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%></td>
 </body>
