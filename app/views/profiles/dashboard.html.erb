@@ -1,5 +1,7 @@
-<body>	
-	<ul class="list-inline">
+<html>
+<body>
+<div id ="main-content",class: "wrapper">
+  <ul>
 	<li>
 	<%= link_to 'My Account',  profiles_my_account_path(current_user),class: "btn btn-primary btn-xs" %></li>
 
@@ -21,5 +23,6 @@
 	<%= Friendship.frndrequest(current_user).count %>
 	</li>
   </ul>
+  </div>
 </body>
 </html>

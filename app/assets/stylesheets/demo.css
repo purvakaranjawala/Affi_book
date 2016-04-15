@@ -62,11 +62,11 @@ a{
 	text-decoration: none;
 }
 .container{
-	width: 90%;
-	height: 50%;
+	width: 93%;
+	height: 126%;
 	position: relative;
-	 left:-10px;
-	text-align: center;
+	 left:-151px;
+	text-align: -moz-right;
 }
 .clr{
 	clear: both;

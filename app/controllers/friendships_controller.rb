@@ -33,7 +33,7 @@ class FriendshipsController < ApplicationController
   end
 
   def show_friend_request
-    @frnds = Friendship.where(:friend_id => current_user.id)
+    @frnds = Friendship.where(:friend_id => current_user.id).where(:flag => false)
   end
   
  private
