@@ -8,68 +8,55 @@
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <!-- <link rel="shortcut icon" href="img/favicon.png">  -->
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "" %>">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'bootstrap.min', media: "all", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag 'bootstrap.min.css', media: "all", "data-turbolinks-track" => "reload" %>
+    <%= stylesheet_link_tag 'bootstrap.min', media: 'all', "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag 'bootstrap.min.css', media: 'all', "data-turbolinks-track" => "reload" %>
     <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css' %>
-    <%= stylesheet_link_tag 'bootstrap-reset.css', media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag 'bootstrap-reset.css', media: 'all', "data-turbolinks-track" => true %>
     <%= stylesheet_link_tag 'slidebars.css', media: "all", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag 'style.css', media: "all", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag 'style-responsive.css', media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag 'style.css', media: 'all', "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag 'style-responsive.css', media: 'all', "data-turbolinks-track" => true %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js' %>
     <%= javascript_include_tag 'jquery.js' %>
-    <%= javascript_include_tag 'prototype' %>
+    <%#= javascript_include_tag 'prototype' %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag 'bootstrap.min.js' %>
      <%#= javascript_include_tag 'daterangepicker.js' %>
-    <%= javascript_include_tag 'custom.js' %>
+    <%#= javascript_include_tag 'custom.js' %>
     <%= csrf_meta_tags %>
   </head>
 
 
   <body class = "boxed-page">
     <div class="container">
-      <section id="container" class="">
-        <% if user_signed_in? %>
-          <!--header start-->
-          <%= render :partial => 'layouts/header' %>
-          <!--header end-->
-          <!--main content start-->
-          <%= render 'layouts/page_content' %>
-          <!--main content end-->
-        <% else %>
-          <li><span class="nav navbar-nav navbar-middle">
-          <%= link_to('Login', new_user_session_path,class: "btn btn-primary btn-xs")  %>  
-          </span></li>
-        <% end %>
-      
- 
-        <!-- footer start -->
-        
-        <!--footer end-->
-   
+      <section id="container">
+         <div class="container body">
+          <div class="main_container">
+            <% if user_signed_in? %>
+              <%= render :partial => 'layouts/header' %>
+              <%= render :partial => 'layouts/sidebar' %>
+            <% end %> 
+            <div class="right_col">
+              <%= render 'layouts/page_content' %>
+              <%= yield %>
+              <%= render :partial => 'layouts/footer' %>   
+              
         <!-- <ul class="nav navbar-nav navbar-right"> -->
         <%#= image_tag(current_user.avatar.url,:size => "140x140",class: "img-circle")%>
-        <li><h3><%#= current_user.firstname%></h3></li>
-        <li><%#=link_to 'Home', profiles_dashboard_path,class: "btn btn-primary btn-sm"%></li>
-        <li><%#= link_to('Logout', destroy_user_session_path, :method => :delete,class: "btn btn-primary btn-xs")%></li>
-        </ul>
-
+        <%#= current_user.firstname%>
+        <%#=link_to 'Home', profiles_dashboard_path,class: "btn btn-primary btn-sm"%>
+        <%#= link_to('Logout', destroy_user_session_path, :method => :delete,class: "btn btn-primary btn-xs")%>
         <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <%- end -%>
-        <%= yield %>
-    </section>
-        <!--sidebar start-->
-          <div id="sidebar"  class="nav-collapse ">
-          <%= render :partial => 'layouts/sidebar' %>
-          </div>
-          <!--sidebar end-->
-
+         </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
-

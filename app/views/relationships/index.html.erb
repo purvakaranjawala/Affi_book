@@ -1,19 +1,23 @@
 <body style="background-color: #A4C8EC;">
-  <h3>Followers list is:</h3>
-  <table class="table table-sm">
-    <tr>
-    <th>Followers Name</th>
-     <th>Followee Name</th>
-    </tr>
-    <% @relationships.each do|relation| %>
-    <tr>
-    <td><%= User.find(relation.follower_id).firstname%></td>
-    <td><%= User.find(relation.followed_id).firstname%></td>
-    
-    <td><%= link_to 'Unfollow', relationship_path(relation.followed_id.to_s), method: :delete, data: { confirm: 'Are you sure?' }%></td>
-    </tr>
-    <%end%>
-    </tr>
-  </table>
-    <%=link_to 'Back',:back , class: "btn btn-primary btn-xs"%>
+  <div class="wrapper", id = "main-content">
+    <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
+      <h3>Followers list is:</h3>
+      <table class="table table-sm">
+        <tr>
+        <th>Followers Name</th>
+         <th>Followee Name</th>
+        </tr>
+        <% @relationships.each do|relation| %>
+        <tr>
+        <td><%= User.find(relation.follower_id).firstname%></td>
+        <td><%= User.find(relation.followed_id).firstname%></td>
+        
+        <td><%= link_to 'Unfollow', relationship_path(relation.followed_id.to_s), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        </tr>
+        <%end%>
+        </tr>
+      </table>
+      <%=link_to 'Back',:back , class: "btn btn-primary btn-xs"%>
+    </div>
+  </div>  
 </body>

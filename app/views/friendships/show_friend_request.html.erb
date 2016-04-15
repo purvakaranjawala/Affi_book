@@ -1,20 +1,22 @@
 <body style="background-color:#A4C8EC;">
-  <div>
-    <table class="table table-bordered">
-     <tr>
-       <th>First Name</th>
-       <th>Last Name</th>
-      </tr>
-      <% unless @frnds.blank? %>
-       <% @frnds.each do |request| %>
-          <tr>
-            <td><%= request.user.firstname %></td>
-            <td><%= request.user.lastname %></td>
-            <td><%= link_to "Accept", friendship_path(:id => request.id), :method => "put",class: "btn btn-info btn-xs" %></td> 
-            <td><%= link_to "Decline",friendship_path(request.friend_id.to_s), method: :delete, data: { confirm: 'Are you sure?'},class: "btn btn-info btn-xs"%></td>
-          </tr>
-        <% end %>
-      <%end%>
-    </table>
+  <div class="wrapper", id = "main-content">
+    <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
+      <table class="table table-bordered">
+       <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+        </tr>
+        <% unless @frnds.blank? %>
+         <% @frnds.each do |request| %>
+            <tr>
+              <td><%= request.user.firstname %></td>
+              <td><%= request.user.lastname %></td>
+              <td><%= link_to "Accept", friendship_path(:id => request.id), :method => "put",class: "btn btn-info btn-xs" %></td> 
+              <td><%= link_to "Decline",friendship_path(request.friend_id.to_s), method: :delete, data: { confirm: 'Are you sure?'},class: "btn btn-info btn-xs"%></td>
+            </tr>
+          <% end %>
+        <%end%>
+      </table>
+    </div>
   </div>
 </body>

@@ -1,12 +1,16 @@
 <body style ="background-color: #A4C8EC;">
-	<h1>edit</h1>
-	<%= form_for @post do |f| %>
-	<div class="form-group">
-	    <%= f.label     :post_artical%><br>
-	    <%= f.text_area :post_artical%>
-	</div>
-	<div>
-		<%= f.submit %> 
-	</div>
-	<%end%>
+ <div class="wrapper", id = "main-content">
+   <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
+    	<h1>edit</h1>
+    	<%= form_for @post do |f| %>
+    	<div class="form-group">
+    	    <%= f.label     :post_artical%><br>
+    	    <%= f.text_area :post_artical%>
+    	</div>
+    	<div>
+    		<%= f.submit %> 
+    	</div>
+    	<%end%>
+    </div>
+  </div>
 </body>

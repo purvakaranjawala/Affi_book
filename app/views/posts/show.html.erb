@@ -1,30 +1,33 @@
 <body>
-	<div>
-	<table border ="1">
-	 <tr><strong>Post</strong></tr>
-	 <tr><%= @post.post_artical %></tr>
-	 </table>
-	</div>
+  <div class="wrapper", id = "main-content">
+    <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
 
-  <h4>Comments</h3>
-  <table>
-  <% @post.comments.each do |comment| %>
-  <tr>
-  <td><%= comment.comment_post %></td>
-  <td><%= link_to 'Delete Comment', [comment.post, comment],method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  </td>
-  </tr>
-  <% end %>
-  </table>
+  		<div>
+    		<table border ="1">
+    		 <tr><strong><center>Post</center></strong></tr></table> 
+    		 <tr><td><%= @post.post_artical %></td></tr>
+    		</table>
+  		</div>
 
-  <div>
-	<%= form_for([@post, @post.comments.build]) do |f| %>
+      <h4>Comments</h3>
+      <table class="table table-sm">
+        <% @post.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.comment_post %></td>
+          <td><%= link_to 'Delete Comment', [comment.post, comment],method: :delete,data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </table>
 
-	    <%= f.label :comment_post %><br>
-	    <%= f.text_area :comment_post %>
-	    <%= f.submit%>
-	<% end %>
-	</div>
-<%= link_to 'Back', posts_path %>
+      <div>
+    	<%= form_for([@post, @post.comments.build]) do |f| %>
+
+    	    <%= f.label :comment_post %><br>
+    	    <%= f.text_area :comment_post %>
+    	    <%= f.submit%>
+    	<% end %>
+    	</div>
+    </div>
+  </div>
+  <%= link_to 'Back', posts_path %>
 </body>

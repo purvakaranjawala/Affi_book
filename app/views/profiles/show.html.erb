@@ -1,46 +1,49 @@
 <body>
-  <h1> Your Profile is: </h1>
-  <div>
-    <strong>FirstName:</strong>
-    <%=  current_user.firstname %>
-  </div>
+ <div class="wrapper", id = "main-content">
+    <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
+      <h1> Your Profile is: </h1>
+      <div>
+        <strong>FirstName:</strong>
+        <%=  current_user.firstname %>
+      </div>
 
-  <div>
-    <strong>LastName:</strong>
-    <%=  current_user.lastname %>
-  </div>
+      <div>
+        <strong>LastName:</strong>
+        <%=  current_user.lastname %>
+      </div>
 
-  <div>
-    <strong>Address:</strong>
-    <%=  @profile.address %>
-  </div>
+      <div>
+        <strong>Address:</strong>
+        <%=  @profile.address %>
+      </div>
 
-  <div>
-    <strong>DOB:</strong>
-    <%=  @profile.dob %>
-  </div>
+      <div>
+        <strong>DOB:</strong>
+        <%=  @profile.dob %>
+      </div>
 
-  <div>
-    <strong>Qualification:</strong>
-    <%=  @profile.qualification %>
-  </div>
+      <div>
+        <strong>Qualification:</strong>
+        <%=  @profile.qualification %>
+      </div>
 
-  <div>
-    <strong>ContactNumber:</strong>
-    <%=  @profile.contact %>
-  </div>
+      <div>
+        <strong>ContactNumber:</strong>
+        <%=  @profile.contact %>
+      </div>
 
-  <div>
-    <strong>Gender:</strong>
-    <%=  @profile.gender %>
-  </div>
+      <div>
+        <strong>Gender:</strong>
+        <%=  @profile.gender %>
+      </div>
 
-  <div>
-    <table>
-    <tr>
-      <td><%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%></td>
-    </tr>
-    </table>
+      <div>
+        <table>
+        <tr>
+          <td><%=link_to 'Back to home page', profiles_dashboard_path,class: "btn btn-primary btn-xs"%></td>
+        </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </body>
-
