@@ -2,27 +2,28 @@
 	<body>
 	 <div class="wrapper", id = "main-content">
 	    <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
-			  <ul class="list-inline">
-				<li>
-				<%= link_to 'My Account',  profiles_my_account_path(current_user),class: "btn btn-primary btn-xs" %></li>
+			  <ul class="nav nav-tabs">
+					<li class="active">
+					<%= link_to 'My Account',  profiles_my_account_path(current_user),class: "btn btn-primary btn-xs" %></li>
 
-				<li><%= link_to 'Post', posts_path(current_user),class:"btn btn-primary btn-xs"%></li>
+					<li><%= link_to 'Post', posts_path(current_user),class:"btn btn-primary btn-xs"%></li>
 
-				<li><%= link_to 'Add Profile',new_user_profile_path(current_user),class: "btn btn-primary btn-xs"%></li>
+					<li><%= link_to 'Profile',new_user_profile_path(current_user),class: "btn btn-primary btn-xs"%></li>
 
-				<li><%= link_to 'See User list',user_profiles_path(current_user),class: "btn btn-primary btn-xs"%></li>
+					<li><%= link_to 'User list',user_profiles_path(current_user),class: "btn btn-primary btn-xs"%></li>
 
-				<li><%= link_to 'See followed user list', relationships_path,class: "btn btn-primary btn-xs"%>
-				<%= current_user.relationships.count%>
-				</li>
+					<li><%= link_to 'Followed User', relationships_path,class: "btn btn-primary btn-xs"%>
+					<%= current_user.relationships.count%>
+					</li>
 
-				<li><%= link_to 'See Friend list',friendships_path(current_user),class: "btn btn-primary btn-xs"%>
-				<%=Friendship.friend_count(current_user).count+current_user.friendships.where(:flag => true).count%>
-			  </li>
+					<li><%= link_to 'Friends List ',friendships_path(current_user),class: "btn btn-primary btn-xs"%>
+					<%=Friendship.friend_count(current_user).count+current_user.friendships.where(:flag => true).count%>
+				  </li>
 
-				<li><%= link_to 'RequestArrived',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%>
-				<%= Friendship.frndrequest(current_user).count %>
-				</li>
+					<li><%= link_to 'ArrivedRequest',friendships_show_friend_request_path(current_user),class: "btn btn-primary btn-xs"%>
+					<%= Friendship.frndrequest(current_user).count %>
+					</li>
+
 			  </ul>
 		  </div>
 	  </div>

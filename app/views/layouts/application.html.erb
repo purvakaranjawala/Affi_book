@@ -30,18 +30,19 @@
     <%#= javascript_include_tag 'custom.js' %>
     <%= csrf_meta_tags %>
   </head>
-
+  <% if user_signed_in? %>
 
   <body class = "boxed-page">
     <div class="container">
       <section id="container">
+    
          <div class="container body">
           <div class="main_container">
-            <% if user_signed_in? %>
+            
               <%= render :partial => 'layouts/header' %>
-              <%= render :partial => 'layouts/sidebar' %>
+              <%#= render :partial => 'layouts/sidebar' %>
             <% end %> 
-            <div class="right_col">
+            
               <%= render 'layouts/page_content' %>
               <%= yield %>
               <%= render :partial => 'layouts/footer' %>   

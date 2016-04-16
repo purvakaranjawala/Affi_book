@@ -1,24 +1,28 @@
-<h4>Friends List are</h4>
-<body style ="background-color: #A4C8EC";>
- <table class="table table-bordered">
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-    </tr>
+<div class="wrapper", id = "main-content">
+  <div style="width: 639px; height: 780px; padding-top: 0px; padding-bottom: 0px; margin-top: -784px;">
+    <h4><center>Friends List are</center></h4>
+    <body>
+     <table class="table table-bordered">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+        </tr>
 
-    <% @friendships.each do|frnd| %>
-      <tr>
-        <td><%= User.find(frnd.user_id).firstname %></td>
-        <td><%= User.find(frnd.user_id).lastname %></td>
-        <td><%#= link_to 'Remove',friendship_path(frnd.user_id.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%end%>
-   
-    <% @friends.each do|frnd| %>
-      <tr>
-        <td><%= User.find(frnd.friend_id).firstname %></td>
-        <td><%= User.find(frnd.friend_id).lastname %></td>
-    <%end%>
-    </tr>     
-  </table>
-</body>
+        <% @friendships.each do|frnd| %>
+          <tr>
+            <td><%= User.find(frnd.user_id).firstname %></td>
+            <td><%= User.find(frnd.user_id).lastname %></td>
+            <td><%#= link_to 'Remove',friendship_path(frnd.user_id.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <%end%>
+       
+        <% @friends.each do|frnd| %>
+          <tr>
+            <td><%= User.find(frnd.friend_id).firstname %></td>
+            <td><%= User.find(frnd.friend_id).lastname %></td>
+        <%end%>
+        </tr>     
+      </table>
+    </body>
+  </div>
+</div>
