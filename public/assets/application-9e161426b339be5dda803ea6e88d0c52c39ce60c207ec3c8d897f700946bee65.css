@@ -20442,7 +20442,7 @@ button.close {
   content: "\f20c";
 }
 body {
-  min-height: 500%;
+  min-height: 200%;
 }
 .container {
   min-height: 38%;
