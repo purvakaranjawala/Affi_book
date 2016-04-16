@@ -354,8 +354,8 @@ ul.sidebar-menu li a.active i {
 .wrapper {
     display: -moz-inline-box;
     margin-top: 180px;
-    padding: 40px;
-    width: 100%;
+    padding: 100px;
+    width: 111%;
 }
 
 a.logo {
